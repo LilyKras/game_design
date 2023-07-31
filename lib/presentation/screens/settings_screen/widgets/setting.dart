@@ -9,30 +9,35 @@ class SettingsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Card(
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(21))),
+        borderRadius: BorderRadius.all(Radius.circular(21)),
+      ),
       color: Color.fromARGB(255, 224, 177, 169),
       child: Column(
         children: [
           Setting(
-              text: 'Sound',
-              image: 'assets/small_icons/sound.png',
-              action: CustomSwitcher()),
+            text: 'Sound',
+            image: 'assets/small_icons/sound.png',
+            action: CustomSwitcher(),
+          ),
           Setting(
-              text: 'Notifications',
-              image: 'assets/small_icons/notifications.png',
-              action: CustomSwitcher()),
+            text: 'Notifications',
+            image: 'assets/small_icons/notifications.png',
+            action: CustomSwitcher(),
+          ),
           Setting(
-              text: 'Language',
-              image: 'assets/small_icons/language.png',
-              action: LinkedArror(
-                url: '',
-              )),
+            text: 'Language',
+            image: 'assets/small_icons/language.png',
+            action: LinkedArror(
+              url: '',
+            ),
+          ),
           Setting(
-              text: 'Theme',
-              image: 'assets/small_icons/theme.png',
-              action: LinkedArror(
-                url: '',
-              )),
+            text: 'Theme',
+            image: 'assets/small_icons/theme.png',
+            action: LinkedArror(
+              url: '',
+            ),
+          ),
         ],
       ),
     );

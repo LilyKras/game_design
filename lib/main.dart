@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
         useMaterial3: true,
       ),
-      home: const SettingsScreen(),
+      home: const MainScreen(),
       routes: {
         MainScreen.routeName: (ctx) => const MainScreen(),
         SettingsScreen.routeName: (ctx) => const SettingsScreen(),

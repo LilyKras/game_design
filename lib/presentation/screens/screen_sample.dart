@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 
 class ScreenSample extends StatelessWidget {
   static const routeName = '/home';
-  const ScreenSample(
-      {super.key,
-      required this.body,
-      required this.isShop,
-      required this.isSettings});
+  const ScreenSample({
+    super.key,
+    required this.body,
+    required this.isShop,
+    required this.isSettings,
+  });
   final Widget body;
   final bool isShop, isSettings;
 
@@ -22,9 +23,13 @@ class ScreenSample extends StatelessWidget {
           children: !isShop
               ? const [
                   NavigationIconButton(
-                      text: 'EXIT', image: 'assets/icons/exit.png'),
+                    text: 'EXIT',
+                    image: 'assets/icons/exit.png',
+                  ),
                   NavigationIconButton(
-                      text: 'HOME', image: 'assets/icons/home.png'),
+                    text: 'HOME',
+                    image: 'assets/icons/home.png',
+                  ),
                   NavigationIconButton(
                     text: 'SETTINGS',
                     image: 'assets/icons/settings.png',
@@ -32,9 +37,13 @@ class ScreenSample extends StatelessWidget {
                 ]
               : const [
                   NavigationIconButton(
-                      text: 'BACK', image: 'assets/icons/exit.png'),
+                    text: 'BACK',
+                    image: 'assets/icons/exit.png',
+                  ),
                   NavigationIconButton(
-                      text: 'HOME', image: 'assets/icons/home.png'),
+                    text: 'HOME',
+                    image: 'assets/icons/home.png',
+                  ),
                   NavigationIconButton(
                     text: 'STORE',
                     image: 'assets/icons/settings.png',
