@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1035125920651',
     projectId: 'diella',
     storageBucket: 'diella.appspot.com',
-    iosClientId: '1035125920651-derrics0mbva0qfas5hn00t9ie1o06q7.apps.googleusercontent.com',
+    iosClientId:
+        '1035125920651-derrics0mbva0qfas5hn00t9ie1o06q7.apps.googleusercontent.com',
     iosBundleId: 'com.example.diella',
   );
 }

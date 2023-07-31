@@ -1,10 +1,10 @@
-
 import 'package:diella/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'presentation/screens/settings_screen/settings_screen.dart';
 
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,18 +32,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Alliance Love',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
         useMaterial3: true,
       ),
-      home: const Scaffold(body: Text('AAA')),
-      routes: const {
-            // MainScreen.routeName: (ctx) => const MainScreen(),
-            // NewTaskScreen.routeName: (ctx) => const NewTaskScreen(),
-          },
+      home: const SettingsScreen(),
+      routes: {
+        // MainScreen.routeName: (ctx) => const MainScreen(),
+        SettingsScreen.routeName: (ctx) => const SettingsScreen(),
+      },
     );
   }
 }
-
-
