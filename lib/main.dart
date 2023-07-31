@@ -1,4 +1,5 @@
 import 'package:diella/firebase_options.dart';
+import 'package:diella/presentation/screens/main_screen/main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const SettingsScreen(),
       routes: {
-        // MainScreen.routeName: (ctx) => const MainScreen(),
+        MainScreen.routeName: (ctx) => const MainScreen(),
         SettingsScreen.routeName: (ctx) => const SettingsScreen(),
       },
     );

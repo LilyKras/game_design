@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.15.0
   firebase_crashlytics: ^3.3.4
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +66,7 @@ flutter:
     - assets/icons/exit.png
     - assets/icons/home.png
     - assets/icons/settings.png
+    - assets/icons/plus.png
     - assets/small_icons/sound.png
     - assets/small_icons/theme.png
     - assets/small_icons/language.png
@@ -72,6 +74,8 @@ flutter:
     - assets/small_icons/conf.png
     - assets/small_icons/help.png
     - assets/small_icons/rules.png
+    - assets/stats/money.png
+    - assets/stats/key.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
