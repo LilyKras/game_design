@@ -1,11 +1,9 @@
 import 'package:diella/firebase_options.dart';
-import 'package:diella/presentation/screens/main_screen/main_screen.dart';
+import 'package:diella/navigation/router_delegate.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'presentation/screens/settings_screen/settings_screen.dart';
 
 Future<void> _init() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,17 +30,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Alliance Love',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
-      routes: {
-        MainScreen.routeName: (ctx) => const MainScreen(),
-        SettingsScreen.routeName: (ctx) => const SettingsScreen(),
-      },
+      routerDelegate: routerDelegate,
     );
   }
 }

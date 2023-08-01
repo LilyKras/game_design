@@ -5,16 +5,16 @@ class NavigationIconButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.image,
-    this.tapAction,
+    required this.tapAction,
   });
   final String text;
   final String image;
-  final Function? tapAction;
+  final Function tapAction;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: tapAction == null ? () {} : () => tapAction,
+      onTap: () => tapAction(),
       child: Padding(
         padding: const EdgeInsets.only(top: 10.0, bottom: 20),
         child: SizedBox(

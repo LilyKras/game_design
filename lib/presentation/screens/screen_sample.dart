@@ -2,6 +2,8 @@ import 'package:diella/presentation/screens/widgets/app_bar.dart';
 import 'package:diella/presentation/screens/widgets/navigation_icon_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../navigation/router_delegate.dart';
+
 class ScreenSample extends StatelessWidget {
   static const routeName = '/home';
   const ScreenSample({
@@ -21,32 +23,38 @@ class ScreenSample extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: !isShop
-              ? const [
+              ? [
                   NavigationIconButton(
                     text: 'EXIT',
                     image: 'assets/icons/exit.png',
+                    tapAction: () => Navigator.of(context).pop(),
                   ),
                   NavigationIconButton(
                     text: 'HOME',
                     image: 'assets/icons/home.png',
+                    tapAction: () => Navigator.of(context).pop(),
                   ),
                   NavigationIconButton(
                     text: 'SETTINGS',
                     image: 'assets/icons/settings.png',
+                    tapAction: () => routerDelegate.showSettings(),
                   ),
                 ]
-              : const [
+              : [
                   NavigationIconButton(
                     text: 'BACK',
-                    image: 'assets/icons/exit.png',
+                    image: 'assets/icons/setttings.png',
+                    tapAction: () => Navigator.of(context).pop(),
                   ),
                   NavigationIconButton(
                     text: 'HOME',
                     image: 'assets/icons/home.png',
+                    tapAction: () => Navigator.of(context).pop(),
                   ),
                   NavigationIconButton(
                     text: 'STORE',
                     image: 'assets/icons/settings.png',
+                    tapAction: () => routerDelegate.showSettings(),
                   ),
                 ],
         ),
