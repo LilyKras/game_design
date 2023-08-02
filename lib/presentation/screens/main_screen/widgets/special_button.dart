@@ -1,15 +1,20 @@
-import 'package:diella/navigation/router_delegate.dart';
 import 'package:flutter/material.dart';
 
 class SpecialButton extends StatelessWidget {
-  const SpecialButton({super.key, required this.isLeft, required this.text});
+  const SpecialButton({
+    super.key,
+    required this.isLeft,
+    required this.text,
+    required this.action,
+  });
   final bool isLeft;
   final String text;
+  final Function action;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => routerDelegate.showSettings(),
+      onTap: () => {action()},
       child: Container(
         width: 160,
         height: 112,

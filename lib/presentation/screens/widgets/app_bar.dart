@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SpecialAppBar({super.key});
+  const SpecialAppBar({super.key, required this.isShop});
+  final bool isShop;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: null,
+      automaticallyImplyLeading: false,
       backgroundColor: const Color(0xFFFFDDC7),
-      title: const Row(
+      title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           StatsCounter(
             image: 'assets/stats/key.png',
             text: '5',
+            isShop: isShop,
           ),
           StatsCounter(
             image: 'assets/stats/money.png',
             text: '5',
+            isShop: isShop,
           ),
         ],
       ),
@@ -28,9 +34,15 @@ class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class StatsCounter extends StatelessWidget {
-  const StatsCounter({super.key, required this.image, required this.text});
+  const StatsCounter({
+    super.key,
+    required this.image,
+    required this.text,
+    required this.isShop,
+  });
   final String image;
   final String text;
+  final bool isShop;
 
   @override
   Widget build(BuildContext context) {
@@ -64,15 +76,21 @@ class StatsCounter extends StatelessWidget {
                 text,
                 style: const TextStyle(color: Colors.white),
               ),
-              Container(
-                height: 35.0,
-                width: 35.0,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/icons/plus.png'),
+              if (!isShop)
+                GestureDetector(
+                  onTap: () {
+                    context.push('/shop');
+                  },
+                  child: Container(
+                    height: 35.0,
+                    width: 35.0,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/icons/plus.png'),
+                      ),
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
         ),
