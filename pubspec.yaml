@@ -82,6 +82,9 @@ flutter:
     - assets/small_icons/rules.png
     - assets/stats/money.png
     - assets/stats/key.png
+    - assets/social_network/vk.png
+    - assets/social_network/tg.png
+    - assets/test.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

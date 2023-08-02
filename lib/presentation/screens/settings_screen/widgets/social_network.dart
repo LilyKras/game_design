@@ -14,9 +14,11 @@ class SocialNetworkCard extends StatelessWidget {
         children: [
           SocialNetworkItem(
             url: vk,
+            imageAsset: 'assets/social_network/vk.png',
           ),
           SocialNetworkItem(
             url: tg,
+            imageAsset: 'assets/social_network/tg.png',
           ),
         ],
       ),
@@ -25,9 +27,13 @@ class SocialNetworkCard extends StatelessWidget {
 }
 
 class SocialNetworkItem extends StatelessWidget {
-  const SocialNetworkItem({super.key, required this.url, this.imageAsset});
+  const SocialNetworkItem({
+    super.key,
+    required this.url,
+    required this.imageAsset,
+  });
   final Uri url;
-  final String? imageAsset;
+  final String imageAsset;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +49,12 @@ class SocialNetworkItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           color: Colors.white,
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            imageAsset,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

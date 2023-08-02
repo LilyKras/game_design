@@ -91,11 +91,25 @@ class _SliderInfinityState extends State<SliderInfinity> {
 final List<Widget> imageSliders = imgList
     .map(
       (item) => Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(21),
+          border: Border.all(color: Colors.white),
+        ),
         margin: const EdgeInsets.all(5.0),
         child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+          borderRadius: BorderRadius.circular(21),
           child: Stack(
-            children: <Widget>[
+            fit: StackFit.expand,
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Color(0xFFB57A82), Color(0xFFF3909D)],
+                    end: Alignment.topCenter,
+                    begin: Alignment.bottomCenter,
+                  ),
+                ),
+              ),
               Image.network(
                 item,
                 fit: BoxFit.cover,
