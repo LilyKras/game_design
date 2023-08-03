@@ -29,7 +29,7 @@ class MainScreen extends ConsumerWidget {
                   text: 'Превратности судьбы',
                   action: () => runApp(GameWidget(
                     game: FirstGame(),
-                  )),
+                  ),),
                 ),
                 SpecialButton(
                   isLeft: true,
