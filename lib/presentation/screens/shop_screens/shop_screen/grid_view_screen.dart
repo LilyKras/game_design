@@ -1,4 +1,4 @@
-import 'package:diella/data/shop.dart';
+import 'package:diella/domain/helpers/shop.dart';
 import 'package:diella/presentation/screens/screen_sample.dart';
 import 'package:diella/presentation/screens/shop_screens/shop_screen/widgets/card_type.dart';
 import 'package:flutter/material.dart';

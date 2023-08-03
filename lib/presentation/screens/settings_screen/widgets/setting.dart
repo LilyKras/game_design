@@ -1,4 +1,4 @@
-import 'package:diella/data/settings.dart';
+import 'package:diella/domain/helpers/settings.dart';
 import 'package:diella/presentation/screens/settings_screen/widgets/widgets/selector.dart';
 import 'package:diella/presentation/screens/settings_screen/widgets/widgets/setting.dart';
 import 'package:flutter/material.dart';

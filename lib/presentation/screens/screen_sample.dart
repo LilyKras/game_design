@@ -1,4 +1,4 @@
-import 'package:diella/data/url.dart';
+import 'package:diella/domain/helpers/url.dart';
 import 'package:diella/presentation/screens/widgets/app_bar.dart';
 import 'package:diella/presentation/screens/widgets/navigation_icon_button.dart';
 import 'package:flutter/material.dart';

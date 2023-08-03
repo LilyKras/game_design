@@ -1,4 +1,4 @@
-import 'package:diella/data/url.dart';
+import 'package:diella/domain/helpers/url.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

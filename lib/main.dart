@@ -1,4 +1,4 @@
-import 'package:diella/data/enums/theme.dart';
+import 'package:diella/domain/helpers/enums/theme.dart';
 import 'package:diella/presentation/controlers/theme_manager.dart';
 import 'package:diella/firebase_options.dart';
 import 'package:diella/navigation/navigator.dart';

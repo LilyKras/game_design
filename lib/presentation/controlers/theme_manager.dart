@@ -1,4 +1,4 @@
-import 'package:diella/data/enums/theme.dart';
+import 'package:diella/domain/helpers/enums/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ThemeManager extends StateNotifier<AppTheme> {
