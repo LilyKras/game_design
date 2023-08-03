@@ -1,4 +1,4 @@
-import 'package:diella/data/models/shop_item.dart';
+import 'package:diella/domain/models/shop_item.dart';
 import 'package:diella/data/shop.dart';
 import 'package:diella/presentation/screens/shop_screens/type_shop_screen/single_screen/widgets/small_element.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +12,12 @@ class SingleTypeScreen extends StatelessWidget {
     List<ShopItem> elements;
     type == 'coins' ? elements = coins : elements = keys;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ListView.builder(
         itemBuilder: (context, index) {
           if (index == 0) {
             return Container(
+              margin: const EdgeInsets.symmetric(horizontal: 50),
               height: 40,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 1),

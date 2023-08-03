@@ -17,7 +17,7 @@ class SpecialButton extends StatelessWidget {
       onTap: () => {action()},
       child: Container(
         width: 160,
-        height: 112,
+        height: MediaQuery.of(context).size.height / 8,
         decoration: BoxDecoration(
           borderRadius: isLeft
               ? const BorderRadius.only(

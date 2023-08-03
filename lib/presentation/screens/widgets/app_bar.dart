@@ -1,5 +1,9 @@
+import 'package:diella/presentation/controlers/keys_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../controlers/coins_manager.dart';
 
 class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SpecialAppBar({super.key, required this.isShop});
@@ -11,20 +15,22 @@ class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: null,
       automaticallyImplyLeading: false,
       backgroundColor: const Color(0xFFFFDDC7),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          StatsCounter(
-            image: 'assets/stats/key.png',
-            text: '5',
-            isShop: isShop,
-          ),
-          StatsCounter(
-            image: 'assets/stats/money.png',
-            text: '5',
-            isShop: isShop,
-          ),
-        ],
+      title: Consumer(
+        builder: (context, ref, child) => Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            StatsCounter(
+              image: 'assets/stats/key.png',
+              text: '${ref.watch(keysManager) as int}',
+              isShop: isShop,
+            ),
+            StatsCounter(
+              image: 'assets/stats/money.png',
+              text: '${ref.watch(coinsManager) as int}',
+              isShop: isShop,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -72,9 +78,15 @@ class StatsCounter extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                text,
-                style: const TextStyle(color: Colors.white),
+              SizedBox(
+                height: 30.0,
+                width: 55,
+                child: FittedBox(
+                  child: Text(
+                    text,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
               ),
               if (!isShop)
                 GestureDetector(

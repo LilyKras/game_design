@@ -8,7 +8,7 @@ class SocialNetworkCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.height / 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -44,8 +44,8 @@ class SocialNetworkItem extends StatelessWidget {
         }
       },
       child: Container(
-        width: 45,
-        height: 45,
+        width: MediaQuery.of(context).size.height / 17,
+        height: MediaQuery.of(context).size.height / 17,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           color: Colors.white,

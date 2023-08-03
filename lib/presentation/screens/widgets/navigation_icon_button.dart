@@ -16,7 +16,7 @@ class NavigationIconButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => tapAction(),
       child: Padding(
-        padding: const EdgeInsets.only(top: 10.0, bottom: 20),
+        padding: const EdgeInsets.only(top: 20.0, bottom: 15),
         child: SizedBox(
           width: 55,
           height: 55,

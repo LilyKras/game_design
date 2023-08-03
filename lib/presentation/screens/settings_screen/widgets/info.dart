@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:diella/data/url.dart';
 import 'package:diella/presentation/screens/settings_screen/widgets/widgets/setting.dart';
 import 'package:flutter/material.dart';
@@ -48,13 +50,31 @@ class LinkedArror extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () async {
-        if (!await launchUrl(url)) {
-          throw Exception('Could not launch $url');
-        }
-      },
-      icon: const Icon(Icons.arrow_forward_ios),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 17,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: IconButton(
+          onPressed: () async {
+            if (!await launchUrl(url)) {
+              // ignore: use_build_context_synchronously
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: const Dialog(
+                      child: Text('Our mail adress is $mailAdress'),
+                    ),
+                  );
+                },
+                barrierColor: null,
+              );
+            }
+          },
+          icon: const Icon(Icons.arrow_forward_ios),
+        ),
+      ),
     );
   }
 }

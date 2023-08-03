@@ -14,12 +14,12 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
             child: Container(
               height: 21.0,
               width: 21.0,
@@ -52,13 +52,19 @@ class _CustomSwitcherState extends State<CustomSwitcher> {
   bool val = true;
   @override
   Widget build(BuildContext context) {
-    return Switch(
-      value: val,
-      onChanged: (_) {
-        setState(() {
-          val = !val;
-        });
-      },
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 17,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: Switch(
+          value: val,
+          onChanged: (_) {
+            setState(() {
+              val = !val;
+            });
+          },
+        ),
+      ),
     );
   }
 }

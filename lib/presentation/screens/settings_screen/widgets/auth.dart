@@ -6,7 +6,7 @@ class AuthCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 45),
       child: Card(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(21)),
@@ -20,17 +20,32 @@ class AuthCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Log in with'),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Facebook'),
-                  )
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 17,
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text('Facebook'),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Log in with'),
-                  TextButton(onPressed: () {}, child: const Text('Google'))
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 17,
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text('Google'),
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],

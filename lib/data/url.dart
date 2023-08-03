@@ -20,3 +20,5 @@ String? encodeQueryParameters(Map<String, String> params) {
       )
       .join('&');
 }
+
+const String mailAdress = 'krasnogorova0304@mail.ru';

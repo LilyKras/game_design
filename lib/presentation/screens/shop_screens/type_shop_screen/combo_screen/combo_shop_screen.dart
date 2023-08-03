@@ -11,7 +11,7 @@ class ComboScreen extends StatelessWidget {
       children: [
         Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
             child: Container(
               height: 40,
               decoration: BoxDecoration(

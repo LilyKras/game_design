@@ -1,4 +1,4 @@
-import 'package:diella/data/models/shop_item.dart';
+import 'package:diella/domain/models/shop_item.dart';
 
 const List<String> shopTypes = ['combo', 'coins', 'keys'];
 

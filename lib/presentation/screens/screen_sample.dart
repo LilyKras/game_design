@@ -64,6 +64,9 @@ class ScreenSample extends StatelessWidget {
       ),
       appBar: isSettings
           ? AppBar(
+              leading: null,
+              automaticallyImplyLeading: false,
+              centerTitle: true,
               title: const Text(
                 'Settings',
                 style: TextStyle(fontSize: 24),
