@@ -1,14 +1,14 @@
 import 'package:diella/domain/helpers/enums/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ThemeManager extends StateNotifier<AppTheme> {
-  ThemeManager() : super(AppTheme.light);
+class ThemeController extends StateNotifier<AppTheme> {
+  ThemeController() : super(AppTheme.light);
 
   void toggleTheme() {
     state == AppTheme.light ? state = AppTheme.dark : state = AppTheme.light;
   }
 }
 
-final themeManager = StateNotifierProvider((ref) {
-  return ThemeManager();
+final themeController = StateNotifierProvider((ref) {
+  return ThemeController();
 });

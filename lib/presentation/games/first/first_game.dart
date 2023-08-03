@@ -1,9 +1,11 @@
 import 'dart:ui';
 
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 
-class FirstGame extends FlameGame {
+class FirstGame extends FlameGame with TapDetector {
   SpriteComponent jackComponent = SpriteComponent();
   SpriteComponent joComponent = SpriteComponent();
   @override
@@ -30,6 +32,8 @@ class FirstGame extends FlameGame {
     add(
       joComponent,
     );
+    FlameAudio.bgm.initialize();
+    // FlameAudio.bgm.play('game/music/happy.mp3', volume: 0.25);
   }
 
   @override

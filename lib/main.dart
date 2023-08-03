@@ -1,9 +1,11 @@
 import 'package:diella/domain/helpers/enums/theme.dart';
-import 'package:diella/presentation/menu/screens/controlers/theme_manager.dart';
+import 'package:diella/presentation/menu/screens/controlers/settings/theme_controller.dart';
 import 'package:diella/firebase_options.dart';
 import 'package:diella/navigation/navigator.dart';
+import 'package:diella/presentation/menu/screens/controlers/settings/switch_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,6 +26,7 @@ Future<void> _init() async {
 
 void main() {
   _init();
+  FlameAudio.bgm.initialize();
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -38,21 +41,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, ref, child) => MaterialApp.router(
-        title: 'Alliance Love',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
-          useMaterial3: true,
-        ),
-        darkTheme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
-          useMaterial3: false,
-        ),
-        themeMode: ref.watch(themeManager) as AppTheme == AppTheme.dark
-            ? ThemeMode.dark
-            : ThemeMode.light,
-        routerConfig: router,
-      ),
+      builder: (context, ref, child) {
+        (ref.read(volumeController) as bool)
+            ? FlameAudio.bgm.play('game/music/sad.mp3', volume: 1)
+            : FlameAudio.bgm.stop();
+        return MaterialApp.router(
+          title: 'Alliance Love',
+          theme: ThemeData(
+            colorScheme:
+                ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData(
+            colorScheme:
+                ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
+            useMaterial3: false,
+          ),
+          themeMode: ref.watch(themeController) as AppTheme == AppTheme.dark
+              ? ThemeMode.dark
+              : ThemeMode.light,
+          routerConfig: router,
+        );
+      },
     );
   }
 }

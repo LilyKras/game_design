@@ -1,4 +1,5 @@
 import 'package:diella/domain/helpers/settings.dart';
+import 'package:diella/presentation/menu/screens/controlers/settings/switch_controller.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/selector.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/setting.dart';
 import 'package:flutter/material.dart';
@@ -8,24 +9,24 @@ class SettingsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      shape: RoundedRectangleBorder(
+    return Card(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(21)),
       ),
-      color: Color.fromARGB(255, 224, 177, 169),
+      color: const Color.fromARGB(255, 224, 177, 169),
       child: Column(
         children: [
           Setting(
             text: 'Sound',
             image: 'assets/small_icons/sound.png',
-            action: CustomSwitcher(),
+            action: CustomSwitcher(controller: volumeController),
           ),
           Setting(
             text: 'Notifications',
             image: 'assets/small_icons/notifications.png',
-            action: CustomSwitcher(),
+            action: CustomSwitcher(controller: notificationsController),
           ),
-          Setting(
+          const Setting(
             text: 'Language',
             image: 'assets/small_icons/language.png',
             action: Selector(
@@ -33,7 +34,7 @@ class SettingsCard extends StatelessWidget {
               isThemeSelector: false,
             ),
           ),
-          Setting(
+          const Setting(
             text: 'Theme',
             image: 'assets/small_icons/theme.png',
             action: Selector(

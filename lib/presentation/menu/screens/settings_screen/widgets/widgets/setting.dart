@@ -1,4 +1,6 @@
+import 'package:diella/presentation/menu/screens/controlers/settings/switch_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Setting extends StatelessWidget {
   const Setting({
@@ -41,27 +43,21 @@ class Setting extends StatelessWidget {
   }
 }
 
-class CustomSwitcher extends StatefulWidget {
-  const CustomSwitcher({super.key});
+class CustomSwitcher extends ConsumerWidget {
+  const CustomSwitcher({super.key, required this.controller});
+
+  final StateNotifierProvider<SettingsSwitcherController, Object?> controller;
 
   @override
-  State<CustomSwitcher> createState() => _CustomSwitcherState();
-}
-
-class _CustomSwitcherState extends State<CustomSwitcher> {
-  bool val = true;
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return SizedBox(
       height: MediaQuery.of(context).size.height / 17,
       child: FittedBox(
         fit: BoxFit.fill,
         child: Switch(
-          value: val,
+          value: ref.watch(controller) as bool,
           onChanged: (_) {
-            setState(() {
-              val = !val;
-            });
+            ref.read(controller.notifier).toggleState();
           },
         ),
       ),

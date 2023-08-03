@@ -1,9 +1,9 @@
-import 'package:diella/presentation/menu/screens/controlers/keys_manager.dart';
+import 'package:diella/presentation/menu/screens/controlers/keys_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../controlers/coins_manager.dart';
+import '../controlers/coins_controller.dart';
 
 class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SpecialAppBar({super.key, required this.isShop});
@@ -21,12 +21,12 @@ class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             StatsCounter(
               image: 'assets/stats/key.png',
-              text: '${ref.watch(keysManager) as int}',
+              text: '${ref.watch(keysController) as int}',
               isShop: isShop,
             ),
             StatsCounter(
               image: 'assets/stats/money.png',
-              text: '${ref.watch(coinsManager) as int}',
+              text: '${ref.watch(coinsController) as int}',
               isShop: isShop,
             ),
           ],

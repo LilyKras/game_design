@@ -1,4 +1,4 @@
-import 'package:diella/presentation/menu/screens/controlers/coins_manager.dart';
+import 'package:diella/presentation/menu/screens/controlers/coins_controller.dart';
 import 'package:diella/presentation/menu/screens/main_screen/widgets/slider.dart';
 import 'package:diella/presentation/menu/screens/main_screen/widgets/special_button.dart';
 import 'package:flame/game.dart';
@@ -27,15 +27,17 @@ class MainScreen extends ConsumerWidget {
                 SpecialButton(
                   isLeft: false,
                   text: 'Превратности судьбы',
-                  action: () => runApp(GameWidget(
-                    game: FirstGame(),
-                  ),),
+                  action: () => runApp(
+                    GameWidget(
+                      game: FirstGame(),
+                    ),
+                  ),
                 ),
                 SpecialButton(
                   isLeft: true,
                   text: 'Реклама +1',
                   action: () {
-                    ref.read(coinsManager.notifier).updateCounter(1);
+                    ref.read(coinsController.notifier).updateCounter(1);
                   },
                 ),
               ],
