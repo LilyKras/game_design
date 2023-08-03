@@ -1,5 +1,5 @@
 import 'package:diella/domain/helpers/shop.dart';
-import 'package:diella/presentation/menu/screens/screen_sample.dart';
+import 'package:diella/presentation/menu/screens/widgets/screen_sample.dart';
 import 'package:diella/presentation/menu/screens/shop_screens/shop_screen/widgets/card_type.dart';
 import 'package:flutter/material.dart';
 

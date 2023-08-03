@@ -1,9 +1,9 @@
-import 'package:diella/presentation/menu/screens/controlers/keys_controller.dart';
+import 'package:diella/presentation/menu/controlers/keys_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../controlers/coins_controller.dart';
+import '../../controlers/coins_controller.dart';
 
 class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SpecialAppBar({super.key, required this.isShop});

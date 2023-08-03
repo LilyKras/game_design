@@ -1,8 +1,8 @@
 import 'package:diella/domain/helpers/enums/theme.dart';
-import 'package:diella/presentation/menu/screens/controlers/settings/theme_controller.dart';
+import 'package:diella/presentation/menu/controlers/settings/theme_controller.dart';
 import 'package:diella/firebase_options.dart';
 import 'package:diella/navigation/navigator.dart';
-import 'package:diella/presentation/menu/screens/controlers/settings/switch_controller.dart';
+import 'package:diella/presentation/menu/controlers/settings/switch_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flame_audio/flame_audio.dart';

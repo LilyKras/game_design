@@ -1,4 +1,4 @@
-import 'package:diella/presentation/menu/screens/screen_sample.dart';
+import 'package:diella/presentation/menu/screens/widgets/screen_sample.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/auth.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/info.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/setting.dart';

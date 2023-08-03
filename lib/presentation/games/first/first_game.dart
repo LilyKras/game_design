@@ -33,7 +33,7 @@ class FirstGame extends FlameGame with TapDetector {
       joComponent,
     );
     FlameAudio.bgm.initialize();
-    // FlameAudio.bgm.play('game/music/happy.mp3', volume: 0.25);
+    FlameAudio.bgm.play('game/music/happy.mp3', volume: 0.25);
   }
 
   @override

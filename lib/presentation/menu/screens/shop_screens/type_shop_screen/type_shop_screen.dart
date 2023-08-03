@@ -1,4 +1,4 @@
-import 'package:diella/presentation/menu/screens/screen_sample.dart';
+import 'package:diella/presentation/menu/screens/widgets/screen_sample.dart';
 import 'package:diella/presentation/menu/screens/shop_screens/type_shop_screen/combo_screen/combo_shop_screen.dart';
 import 'package:diella/presentation/menu/screens/shop_screens/type_shop_screen/single_screen/single_type_shop_screen.dart';
 import 'package:flutter/material.dart';

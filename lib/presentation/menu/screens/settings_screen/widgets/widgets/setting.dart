@@ -1,4 +1,4 @@
-import 'package:diella/presentation/menu/screens/controlers/settings/switch_controller.dart';
+import 'package:diella/presentation/menu/controlers/settings/switch_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
