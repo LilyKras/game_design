@@ -1,5 +1,5 @@
 import 'package:diella/domain/helpers/enums/theme.dart';
-import 'package:diella/presentation/controlers/theme_manager.dart';
+import 'package:diella/presentation/menu/screens/controlers/theme_manager.dart';
 import 'package:diella/firebase_options.dart';
 import 'package:diella/navigation/navigator.dart';
 import 'package:firebase_core/firebase_core.dart';

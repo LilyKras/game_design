@@ -1,8 +1,8 @@
-import 'package:diella/presentation/screens/screen_sample.dart';
-import 'package:diella/presentation/screens/settings_screen/widgets/auth.dart';
-import 'package:diella/presentation/screens/settings_screen/widgets/info.dart';
-import 'package:diella/presentation/screens/settings_screen/widgets/setting.dart';
-import 'package:diella/presentation/screens/settings_screen/widgets/social_network.dart';
+import 'package:diella/presentation/menu/screens/screen_sample.dart';
+import 'package:diella/presentation/menu/screens/settings_screen/widgets/auth.dart';
+import 'package:diella/presentation/menu/screens/settings_screen/widgets/info.dart';
+import 'package:diella/presentation/menu/screens/settings_screen/widgets/setting.dart';
+import 'package:diella/presentation/menu/screens/settings_screen/widgets/social_network.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {

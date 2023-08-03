@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:diella/domain/helpers/url.dart';
-import 'package:diella/presentation/screens/settings_screen/widgets/widgets/setting.dart';
+import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

@@ -42,6 +42,7 @@ dependencies:
   go_router: ^10.0.0
   url_launcher: ^6.1.12
   flutter_riverpod: ^2.3.6
+  flame: ^1.8.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+   
     - assets/icons/exit.png
     - assets/icons/home.png
     - assets/icons/settings.png
@@ -86,6 +88,9 @@ flutter:
     - assets/social_network/vk.png
     - assets/social_network/tg.png
     - assets/test.jpeg
+    - assets/images/game/characters/
+    - assets/images/game/backgrounds/
+    - assets/audio/game/music/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

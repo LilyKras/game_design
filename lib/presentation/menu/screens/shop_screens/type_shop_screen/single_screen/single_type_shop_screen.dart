@@ -1,6 +1,6 @@
 import 'package:diella/domain/models/shop_item.dart';
 import 'package:diella/domain/helpers/shop.dart';
-import 'package:diella/presentation/screens/shop_screens/type_shop_screen/single_screen/widgets/small_element.dart';
+import 'package:diella/presentation/menu/screens/shop_screens/type_shop_screen/single_screen/widgets/small_element.dart';
 import 'package:flutter/material.dart';
 
 class SingleTypeScreen extends StatelessWidget {

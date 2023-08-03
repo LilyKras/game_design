@@ -1,10 +1,11 @@
-import 'package:diella/presentation/controlers/coins_manager.dart';
-import 'package:diella/presentation/screens/main_screen/widgets/slider.dart';
-import 'package:diella/presentation/screens/main_screen/widgets/special_button.dart';
+import 'package:diella/presentation/menu/screens/controlers/coins_manager.dart';
+import 'package:diella/presentation/menu/screens/main_screen/widgets/slider.dart';
+import 'package:diella/presentation/menu/screens/main_screen/widgets/special_button.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
+import '../../../games/first/first_game.dart';
 import '../screen_sample.dart';
 
 class MainScreen extends ConsumerWidget {
@@ -26,7 +27,9 @@ class MainScreen extends ConsumerWidget {
                 SpecialButton(
                   isLeft: false,
                   text: 'Превратности судьбы',
-                  action: () => context.push('/shop'),
+                  action: () => runApp(GameWidget(
+                    game: FirstGame(),
+                  )),
                 ),
                 SpecialButton(
                   isLeft: true,

@@ -1,6 +1,6 @@
 import 'package:diella/domain/helpers/url.dart';
-import 'package:diella/presentation/screens/widgets/app_bar.dart';
-import 'package:diella/presentation/screens/widgets/navigation_icon_button.dart';
+import 'package:diella/presentation/menu/screens/widgets/app_bar.dart';
+import 'package:diella/presentation/menu/screens/widgets/navigation_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';

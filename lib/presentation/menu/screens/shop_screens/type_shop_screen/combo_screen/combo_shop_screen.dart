@@ -1,5 +1,5 @@
 import 'package:diella/domain/helpers/shop.dart';
-import 'package:diella/presentation/screens/shop_screens/type_shop_screen/combo_screen/widgets/combo_item.dart';
+import 'package:diella/presentation/menu/screens/shop_screens/type_shop_screen/combo_screen/widgets/combo_item.dart';
 import 'package:flutter/material.dart';
 
 class ComboScreen extends StatelessWidget {
