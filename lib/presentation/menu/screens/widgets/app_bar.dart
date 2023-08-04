@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:diella/presentation/menu/controlers/keys_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -53,9 +55,9 @@ class StatsCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(3.0),
       child: Container(
-        width: 140,
+        width: MediaQuery.of(context).size.width / 3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(21),
           gradient: const LinearGradient(
@@ -65,13 +67,19 @@ class StatsCounter extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(3.0),
+          padding: const EdgeInsets.all(2.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                height: 35.0,
-                width: 35.0,
+                height: min(
+                  MediaQuery.of(context).size.height / 30,
+                  MediaQuery.of(context).size.width / 3 * 0.2,
+                ),
+                width: min(
+                  MediaQuery.of(context).size.height / 30,
+                  MediaQuery.of(context).size.width / 3 * 0.2,
+                ),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(image),
@@ -79,8 +87,8 @@ class StatsCounter extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30.0,
-                width: 55,
+                height: MediaQuery.of(context).size.height / 30,
+                width: MediaQuery.of(context).size.width / 3 * 0.5,
                 child: FittedBox(
                   child: Text(
                     text,
@@ -94,8 +102,14 @@ class StatsCounter extends StatelessWidget {
                     context.push('/shop');
                   },
                   child: Container(
-                    height: 35.0,
-                    width: 35.0,
+                    height: min(
+                      MediaQuery.of(context).size.height / 30,
+                      MediaQuery.of(context).size.width / 3 * 0.2,
+                    ),
+                    width: min(
+                      MediaQuery.of(context).size.height / 30,
+                      MediaQuery.of(context).size.width / 3 * 0.2,
+                    ),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icons/plus.png'),

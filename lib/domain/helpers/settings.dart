@@ -1,11 +1,11 @@
 import 'enums/theme.dart';
 
-const Map<String, String> language = {
-  'ru': 'russian',
-  'eng': 'english',
-  'ch': 'chech'
-};
-const Map<AppTheme, String> theme = {
-  AppTheme.dark: 'dark',
-  AppTheme.light: 'light'
-};
+const List<List> language = [
+  ['ru', 'russian'],
+  ['eng', 'english'],
+  ['ch', 'chech'],
+];
+const List<List> theme = [
+  [AppTheme.dark, 'dark'],
+  [AppTheme.light, 'light'],
+];

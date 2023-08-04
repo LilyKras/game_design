@@ -1,37 +1,40 @@
+import 'package:diella/main.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 abstract class SettingsSwitcherController extends StateNotifier<bool> {
-  SettingsSwitcherController() : super(false);
+  SettingsSwitcherController(super.state);
 
-  void toggleState() {
+  Future<void> toggleState() async {
     state = !state;
   }
 }
 
 class VolumeController extends SettingsSwitcherController {
-  VolumeController() : super();
+  VolumeController(super.state);
 
   @override
-  void toggleState() {
+  Future<void> toggleState() async {
     state ? FlameAudio.bgm.stop() : FlameAudio.bgm.play('game/music/sad.mp3');
     state = !state;
+    await prefs!.setBool('volume', state);
   }
 }
 
 class NotificationsController extends SettingsSwitcherController {
-  NotificationsController() : super();
+  NotificationsController(super.state);
 
   @override
-  void toggleState() {
+  Future<void> toggleState() async {
     state = !state;
+    await prefs!.setBool('notifications', state);
   }
 }
 
 final volumeController = StateNotifierProvider((ref) {
-  return VolumeController();
+  return VolumeController(prefs!.getBool('volume') ?? false);
 });
 
 final notificationsController = StateNotifierProvider((ref) {
-  return NotificationsController();
+  return NotificationsController(prefs!.getBool('notifications') ?? false);
 });

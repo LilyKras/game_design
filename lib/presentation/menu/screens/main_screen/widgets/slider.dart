@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:diella/domain/models/story_item.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -20,60 +22,64 @@ class _SliderInfinityState extends State<SliderInfinity> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Stack(
-          alignment: AlignmentDirectional.center,
-          children: [
-            CarouselSlider.builder(
-              carouselController: controller,
-              itemCount: imgList.length,
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                height: MediaQuery.of(context).size.height / 1.8,
-                enlargeStrategy: CenterPageEnlargeStrategy.height,
-                autoPlayInterval: const Duration(seconds: 10),
-                autoPlayAnimationDuration: const Duration(seconds: 5),
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    activeIndex = index;
-                  });
-                },
-              ),
-              itemBuilder: (ctx, index, rIndex) {
-                return imageSliders(context)[index];
-              },
+        // Stack(
+        //   alignment: AlignmentDirectional.center,
+        //   children: [
+        CarouselSlider.builder(
+          carouselController: controller,
+          itemCount: stories.length,
+          options: CarouselOptions(
+            enlargeFactor: 0.4,
+            autoPlay: true,
+            enlargeCenterPage: true,
+            height: min(
+              MediaQuery.of(context).size.height / 1.6,
+              MediaQuery.of(context).size.width * 0.75 * 1.55,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () => controller.previousPage(),
-                  child: Container(
-                    height: 62.0,
-                    width: 62.0,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/icons/arrow_left.png'),
-                      ),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () => controller.nextPage(),
-                  child: Container(
-                    height: 62.0,
-                    width: 62.0,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/icons/arrow_right.png'),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
+            enlargeStrategy: CenterPageEnlargeStrategy.height,
+            autoPlayInterval: const Duration(seconds: 10),
+            autoPlayAnimationDuration: const Duration(seconds: 5),
+            onPageChanged: (index, reason) {
+              setState(() {
+                activeIndex = index;
+              });
+            },
+          ),
+          itemBuilder: (ctx, index, rIndex) {
+            return imageSliders(context)[index];
+          },
         ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   children: [
+        //     GestureDetector(
+        //       onTap: () => controller.previousPage(),
+        //       child: Container(
+        //         height: 62.0,
+        //         width: 62.0,
+        //         decoration: const BoxDecoration(
+        //           image: DecorationImage(
+        //             image: AssetImage('assets/icons/arrow_left.png'),
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //     GestureDetector(
+        //       onTap: () => controller.nextPage(),
+        //       child: Container(
+        //         height: 62.0,
+        //         width: 62.0,
+        //         decoration: const BoxDecoration(
+        //           image: DecorationImage(
+        //             image: AssetImage('assets/icons/arrow_right.png'),
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ],
+        // )
+        // ],
+        // ),
         Padding(
           padding: const EdgeInsets.all(4.0),
           child: AnimatedSmoothIndicator(
@@ -81,8 +87,10 @@ class _SliderInfinityState extends State<SliderInfinity> {
               controller.animateToPage(index);
             },
             activeIndex: activeIndex,
-            count: imgList.length,
+            count: stories.length,
             effect: const SlideEffect(
+              dotHeight: 9,
+              dotWidth: 9,
               activeDotColor: Color(0xFF615959),
               dotColor: Color(0xFFD9D9D9),
             ),
@@ -94,7 +102,7 @@ class _SliderInfinityState extends State<SliderInfinity> {
 }
 
 List<Widget> imageSliders(BuildContext context) {
-  return imgList
+  return stories
       .map(
         (item) => GestureDetector(
           onTap: () {
@@ -113,16 +121,17 @@ List<Widget> imageSliders(BuildContext context) {
             );
           },
           child: Container(
-            width: MediaQuery.of(context).size.height / 2.8,
+            width: MediaQuery.of(context).size.width * 0.75,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
               border: Border.all(color: const Color(0xFFCC7A85), width: 3),
             ),
-            margin: const EdgeInsets.all(5.0),
+            margin: const EdgeInsets.only(bottom: 5),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(21),
               child: Stack(
                 fit: StackFit.expand,
+                alignment: Alignment.bottomLeft,
                 children: [
                   Container(
                     decoration: const BoxDecoration(
@@ -134,8 +143,51 @@ List<Widget> imageSliders(BuildContext context) {
                     ),
                   ),
                   Image.network(
-                    item,
+                    item.imageUrl,
                     fit: BoxFit.cover,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.all(MediaQuery.of(context).size.width / 15),
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height / 1.8 / 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            item.description,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: MediaQuery.of(context).size.height / 50,
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFFE8B227), Color(0xBDBF5214)],
+                              ),
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                vertical:
+                                    MediaQuery.of(context).size.height / 100,
+                                horizontal:
+                                    MediaQuery.of(context).size.width / 5,
+                              ),
+                              child: Text(
+                                'Start',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize:
+                                      MediaQuery.of(context).size.height / 45,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -149,15 +201,15 @@ List<Widget> imageSliders(BuildContext context) {
 class StoryDialog extends StatelessWidget {
   const StoryDialog({super.key, required this.item});
 
-  final String item;
+  final StoryItem item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(21),
+        borderRadius: BorderRadius.circular(23),
+        border: Border.all(color: const Color(0xFFCC7A85), width: 3),
       ),
-      margin: const EdgeInsets.all(5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(21),
         child: Stack(
@@ -173,7 +225,7 @@ class StoryDialog extends StatelessWidget {
               ),
             ),
             Image.network(
-              item,
+              item.imageUrl,
               fit: BoxFit.cover,
             ),
           ],

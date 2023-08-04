@@ -1,7 +1,6 @@
-import 'dart:ui';
-
 import 'package:diella/domain/helpers/url.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/setting.dart';
+import 'package:diella/presentation/menu/screens/widgets/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -61,11 +60,8 @@ class LinkedArror extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child: const Dialog(
-                      child: Text('Our mail adress is $mailAdress'),
-                    ),
+                  return const DialogWidget(
+                    text: 'Our mail adress is $mailAdress',
                   );
                 },
                 barrierColor: null,
@@ -78,3 +74,5 @@ class LinkedArror extends StatelessWidget {
     );
   }
 }
+
+class OxFFB57A82 {}

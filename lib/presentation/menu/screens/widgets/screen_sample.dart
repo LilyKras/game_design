@@ -1,5 +1,6 @@
 import 'package:diella/domain/helpers/url.dart';
 import 'package:diella/presentation/menu/screens/widgets/app_bar.dart';
+import 'package:diella/presentation/menu/screens/widgets/dialog.dart';
 import 'package:diella/presentation/menu/screens/widgets/navigation_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +23,7 @@ class ScreenSample extends StatelessWidget {
       bottomNavigationBar: Container(
         color: const Color(0xFFB57A82),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 3),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: !isShop
@@ -30,7 +31,13 @@ class ScreenSample extends StatelessWidget {
                     NavigationIconButton(
                       text: 'EXIT',
                       image: 'assets/icons/exit.png',
-                      tapAction: () => context.go('/'),
+                      tapAction: () => showDialog(
+                        context: context,
+                        barrierColor: null,
+                        builder: (context) => const DialogWidget(
+                          text: 'Вы уверены, что хотите выйти из аккаунта?',
+                        ),
+                      ),
                     ),
                     NavigationIconButton(
                       text: 'HOME',
@@ -80,7 +87,7 @@ class ScreenSample extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFFFFDDC7), Color(0xFFD58A94)],
+              colors: [Color(0xFFFFDDC7), Color(0xFFFFDDC7), Color(0xFFD58A94)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),

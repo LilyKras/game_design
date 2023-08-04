@@ -56,8 +56,8 @@ class CustomSwitcher extends ConsumerWidget {
         fit: BoxFit.fill,
         child: Switch(
           value: ref.watch(controller) as bool,
-          onChanged: (_) {
-            ref.read(controller.notifier).toggleState();
+          onChanged: (_) async {
+            await ref.read(controller.notifier).toggleState();
           },
         ),
       ),

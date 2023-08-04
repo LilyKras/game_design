@@ -1,5 +1,6 @@
 import 'package:diella/domain/helpers/settings.dart';
 import 'package:diella/presentation/menu/controlers/settings/switch_controller.dart';
+import 'package:diella/presentation/menu/controlers/settings/slider_controller.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/selector.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/setting.dart';
 import 'package:flutter/material.dart';
@@ -26,20 +27,20 @@ class SettingsCard extends StatelessWidget {
             image: 'assets/small_icons/notifications.png',
             action: CustomSwitcher(controller: notificationsController),
           ),
-          const Setting(
+          Setting(
             text: 'Language',
             image: 'assets/small_icons/language.png',
             action: Selector(
               select: language,
-              isThemeSelector: false,
+              controller: languageController,
             ),
           ),
-          const Setting(
+          Setting(
             text: 'Theme',
             image: 'assets/small_icons/theme.png',
             action: Selector(
               select: theme,
-              isThemeSelector: true,
+              controller: themeController,
             ),
           ),
         ],

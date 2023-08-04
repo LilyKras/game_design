@@ -16,16 +16,21 @@ class NavigationIconButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => tapAction(),
       child: Padding(
-        padding: const EdgeInsets.only(top: 20.0, bottom: 15),
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height / 80,
+          bottom: MediaQuery.of(context).size.height / 90 + 1,
+          left: 10,
+          right: 10,
+        ),
         child: SizedBox(
-          width: 55,
-          height: 55,
+          width: MediaQuery.of(context).size.height / 15,
+          height: MediaQuery.of(context).size.height / 15,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                height: 35.0,
-                width: 35.0,
+                height: MediaQuery.of(context).size.height / 30,
+                width: MediaQuery.of(context).size.height / 30,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(image),
@@ -34,7 +39,10 @@ class NavigationIconButton extends StatelessWidget {
               ),
               Text(
                 text,
-                style: const TextStyle(fontSize: 10, color: Color(0xFFFFFFFF)),
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height / 78,
+                  color: const Color(0xFFFFFFFF),
+                ),
               )
             ],
           ),

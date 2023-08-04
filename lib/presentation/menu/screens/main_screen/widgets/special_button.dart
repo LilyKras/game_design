@@ -13,24 +13,28 @@ class SpecialButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () => {action()},
       child: Container(
-        width: 160,
-        height: MediaQuery.of(context).size.height / 8,
+        width: MediaQuery.of(context).size.width * 0.4,
+        height: MediaQuery.of(context).size.height / 10,
         decoration: BoxDecoration(
           borderRadius: isLeft
-              ? const BorderRadius.only(
-                  topLeft: Radius.circular(32),
-                  topRight: Radius.circular(0),
-                  bottomLeft: Radius.circular(32),
-                  bottomRight: Radius.circular(0),
+              ? BorderRadius.only(
+                  topLeft:
+                      Radius.circular(MediaQuery.of(context).size.height / 30),
+                  topRight: const Radius.circular(0),
+                  bottomLeft:
+                      Radius.circular(MediaQuery.of(context).size.height / 30),
+                  bottomRight: const Radius.circular(0),
                 )
-              : const BorderRadius.only(
-                  topLeft: Radius.circular(0),
-                  topRight: Radius.circular(32),
-                  bottomLeft: Radius.circular(0),
-                  bottomRight: Radius.circular(32),
+              : BorderRadius.only(
+                  topLeft: const Radius.circular(0),
+                  topRight:
+                      Radius.circular(MediaQuery.of(context).size.height / 30),
+                  bottomLeft: const Radius.circular(0),
+                  bottomRight:
+                      Radius.circular(MediaQuery.of(context).size.height / 30),
                 ),
           gradient: const LinearGradient(
             colors: [Color(0xFFB57A82), Color(0xFFF3909D)],
@@ -38,13 +42,16 @@ class SpecialButton extends StatelessWidget {
             begin: Alignment.bottomCenter,
           ),
         ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Center(
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white, fontSize: 18),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.height / 50,
+              ),
             ),
           ),
         ),

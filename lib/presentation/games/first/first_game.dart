@@ -1,5 +1,5 @@
-import 'dart:ui';
-
+// import 'dart:ui';
+import 'package:diella/main.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -33,23 +33,25 @@ class FirstGame extends FlameGame with TapDetector {
       joComponent,
     );
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('game/music/happy.mp3', volume: 0.25);
+    if (prefs!.getBool('volume') ?? false) {
+      FlameAudio.bgm.play('game/music/fight.mp3', volume: 1);
+    }
   }
 
-  @override
-  void update(double dt) {
-    if (joComponent.x > 0) joComponent.x -= 3;
-    super.update(dt);
-  }
+  // @override
+  // void update(double dt) {
+  //   if (joComponent.x > 0) joComponent.x -= 3;
+  //   super.update(dt);
+  // }
 
-  @override
-  void render(Canvas canvas) {
-    super.render(canvas);
+  // @override
+  // void render(Canvas canvas) {
+  //   super.render(canvas);
 
-    final rect = Rect.fromLTWH(0, size.y * 0.75, size.x, size.y / 4);
-    canvas.drawRect(
-      rect,
-      Paint()..color = const Color.fromARGB(160, 159, 159, 159),
-    );
-  }
+  //   final rect = Rect.fromLTWH(0, size.y * 0.75, size.x, size.y / 4);
+  //   canvas.drawRect(
+  //     rect,
+  //     Paint()..color = const Color.fromARGB(160, 159, 159, 159),
+  //   );
+  // }
 }

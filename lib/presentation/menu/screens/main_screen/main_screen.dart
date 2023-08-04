@@ -1,8 +1,7 @@
+import 'package:diella/presentation/games/game.dart';
 import 'package:diella/presentation/menu/controlers/coins_controller.dart';
 import 'package:diella/presentation/menu/screens/main_screen/widgets/slider.dart';
 import 'package:diella/presentation/menu/screens/main_screen/widgets/special_button.dart';
-import 'package:flame/game.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,38 +15,35 @@ class MainScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     return ScreenSample(
-      body: Column(
-        children: [
-          const SliderInfinity(),
-          Padding(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 35),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SpecialButton(
-                  isLeft: false,
-                  text: 'Превратности судьбы',
-                  action: () {
-                    FlameAudio.bgm.stop();
-                    runApp(
-                      GameWidget(
-                        game: FirstGame(),
-                      ),
-                    );
-                  },
-                ),
-                SpecialButton(
-                  isLeft: true,
-                  text: 'Реклама +1',
-                  action: () {
-                    ref.read(coinsController.notifier).updateCounter(1);
-                  },
-                ),
-              ],
-            ),
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        child: Column(
+          children: [
+            const SliderInfinity(),
+            Flexible(
+              fit: FlexFit.tight,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SpecialButton(
+                    isLeft: false,
+                    text: 'Превратности судьбы',
+                    action: () {
+                      startGame(FirstGame());
+                    },
+                  ),
+                  SpecialButton(
+                    isLeft: true,
+                    text: 'Реклама +1',
+                    action: () {
+                      ref.read(coinsController.notifier).updateCounter(1);
+                    },
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       isSettings: false,
       isShop: false,

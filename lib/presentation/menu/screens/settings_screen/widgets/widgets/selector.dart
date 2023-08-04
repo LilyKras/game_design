@@ -1,3 +1,4 @@
+import 'package:diella/presentation/menu/controlers/settings/slider_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -5,11 +6,11 @@ class Selector extends ConsumerWidget {
   const Selector({
     super.key,
     required this.select,
-    required this.isThemeSelector,
+    required this.controller,
   });
 
-  final Map<dynamic, String> select;
-  final bool isThemeSelector;
+  final List<List> select;
+  final StateNotifierProvider<SettingsSliderController, Object?> controller;
 
   @override
   Widget build(BuildContext context, ref) {
@@ -23,11 +24,13 @@ class Selector extends ConsumerWidget {
               icon: const Icon(
                 Icons.arrow_back_ios,
               ),
-              onPressed: () {},
+              onPressed: () {
+                ref.read(controller.notifier).previousState();
+              },
             ),
           ),
         ),
-        const Text('a'),
+        Text(select[ref.watch(controller) as int][1]),
         SizedBox(
           height: MediaQuery.of(context).size.height / 17,
           child: FittedBox(
@@ -36,7 +39,9 @@ class Selector extends ConsumerWidget {
               icon: const Icon(
                 Icons.arrow_forward_ios,
               ),
-              onPressed: () {},
+              onPressed: () {
+                ref.read(controller.notifier).nextState();
+              },
             ),
           ),
         ),

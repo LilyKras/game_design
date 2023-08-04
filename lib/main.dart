@@ -1,16 +1,17 @@
 import 'package:diella/domain/helpers/enums/theme.dart';
-import 'package:diella/presentation/menu/controlers/settings/theme_controller.dart';
+import 'package:diella/domain/helpers/settings.dart';
+import 'package:diella/presentation/menu/controlers/settings/slider_controller.dart';
 import 'package:diella/firebase_options.dart';
 import 'package:diella/navigation/navigator.dart';
-import 'package:diella/presentation/menu/controlers/settings/switch_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-Future<void> _init() async {
+Future<void> _initFirebase() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -24,8 +25,15 @@ Future<void> _init() async {
   };
 }
 
-void main() {
-  _init();
+SharedPreferences? prefs;
+
+Future<void> _initLocalStorage() async {
+  prefs = await SharedPreferences.getInstance();
+}
+
+Future<void> main() async {
+  await _initFirebase();
+  await _initLocalStorage();
   FlameAudio.bgm.initialize();
   runApp(
     const ProviderScope(
@@ -40,29 +48,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    (prefs!.getBool('volume') ?? false)
+        ? FlameAudio.bgm.play('game/music/sad.mp3', volume: 1)
+        : FlameAudio.bgm.stop();
     return Consumer(
-      builder: (context, ref, child) {
-        (ref.read(volumeController) as bool)
-            ? FlameAudio.bgm.play('game/music/sad.mp3', volume: 1)
-            : FlameAudio.bgm.stop();
-        return MaterialApp.router(
-          title: 'Alliance Love',
-          theme: ThemeData(
-            colorScheme:
-                ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
-            useMaterial3: true,
-          ),
-          darkTheme: ThemeData(
-            colorScheme:
-                ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
-            useMaterial3: false,
-          ),
-          themeMode: ref.watch(themeController) as AppTheme == AppTheme.dark
-              ? ThemeMode.dark
-              : ThemeMode.light,
-          routerConfig: router,
-        );
-      },
+      builder: (context, ref, child) => MaterialApp.router(
+        title: 'Alliance Love',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
+          useMaterial3: true,
+        ),
+        darkTheme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
+          useMaterial3: false,
+        ),
+        themeMode: theme[ref.watch(themeController) as int][0] == AppTheme.dark
+            ? ThemeMode.dark
+            : ThemeMode.light,
+        routerConfig: router,
+      ),
     );
   }
 }
