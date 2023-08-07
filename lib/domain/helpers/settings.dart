@@ -6,6 +6,6 @@ const List<List> language = [
   ['ch', 'chech'],
 ];
 const List<List> theme = [
-  [AppTheme.dark, 'dark'],
   [AppTheme.light, 'light'],
+  [AppTheme.dark, 'dark'],
 ];
