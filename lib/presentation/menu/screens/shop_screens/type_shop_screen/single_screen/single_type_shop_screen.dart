@@ -1,6 +1,7 @@
 import 'package:diella/domain/models/shop_item.dart';
 import 'package:diella/domain/helpers/shop.dart';
 import 'package:diella/presentation/menu/screens/shop_screens/type_shop_screen/single_screen/widgets/small_element.dart';
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class SingleTypeScreen extends StatelessWidget {
@@ -22,7 +23,8 @@ class SingleTypeScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 1),
                 borderRadius: BorderRadius.circular(21),
-                color: const Color(0xFFF5B8B8),
+                color:
+                    Theme.of(context).extension<ThemeColors>()!.shopNameColor,
               ),
               child: Center(
                 child: Text(

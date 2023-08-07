@@ -3,6 +3,8 @@ import 'package:diella/domain/helpers/settings.dart';
 import 'package:diella/presentation/menu/controlers/settings/slider_controller.dart';
 import 'package:diella/firebase_options.dart';
 import 'package:diella/navigation/navigator.dart';
+import 'package:diella/presentation/menu/theme/dark_theme.dart';
+import 'package:diella/presentation/menu/theme/light_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flame_audio/flame_audio.dart';
@@ -54,14 +56,8 @@ class MyApp extends StatelessWidget {
     return Consumer(
       builder: (context, ref, child) => MaterialApp.router(
         title: 'Alliance Love',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
-          useMaterial3: true,
-        ),
-        darkTheme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFD58A94)),
-          useMaterial3: false,
-        ),
+        theme: createLightTheme(),
+        darkTheme: createDarkTheme(),
         themeMode: theme[ref.watch(themeController) as int][0] == AppTheme.dark
             ? ThemeMode.dark
             : ThemeMode.light,

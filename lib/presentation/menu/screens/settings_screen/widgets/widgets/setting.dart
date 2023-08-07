@@ -1,8 +1,9 @@
+import 'package:diella/presentation/menu/controlers/settings/slider_controller.dart';
 import 'package:diella/presentation/menu/controlers/settings/switch_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Setting extends StatelessWidget {
+class Setting extends ConsumerWidget {
   const Setting({
     super.key,
     required this.text,
@@ -14,7 +15,9 @@ class Setting extends StatelessWidget {
   final Widget action;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    String isDarkTheme =
+        (ref.watch(themeController) as int == 0) ? '_dark' : '';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Row(
@@ -27,14 +30,17 @@ class Setting extends StatelessWidget {
               width: 21.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(image),
+                  image: AssetImage('$image$isDarkTheme.png'),
                 ),
               ),
             ),
           ),
           Flexible(
             fit: FlexFit.tight,
-            child: Text(text),
+            child: Text(
+              text,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
           ),
           action
         ],

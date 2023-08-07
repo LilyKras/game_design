@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:diella/presentation/menu/controlers/keys_controller.dart';
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +17,6 @@ class SpecialAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: null,
       automaticallyImplyLeading: false,
-      backgroundColor: const Color(0xFFFFDDC7),
       title: Consumer(
         builder: (context, ref, child) => Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,11 +60,8 @@ class StatsCounter extends StatelessWidget {
         width: MediaQuery.of(context).size.width / 3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(21),
-          gradient: const LinearGradient(
-            colors: [Color(0xFFB57A82), Color(0xFFF3909D)],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
-          ),
+          gradient:
+              Theme.of(context).extension<ThemeGradients>()!.statsGradient,
         ),
         child: Padding(
           padding: const EdgeInsets.all(2.0),

@@ -1,6 +1,7 @@
 import 'package:diella/domain/helpers/url.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/setting.dart';
 import 'package:diella/presentation/menu/screens/widgets/dialog.dart';
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,26 +14,26 @@ class InfoCard extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(21)),
       ),
-      color: const Color.fromARGB(255, 224, 177, 169),
+      color: Theme.of(context).extension<ThemeColors>()!.setingsBackgroundColor,
       child: Column(
         children: [
           Setting(
             text: 'Help',
-            image: 'assets/small_icons/help.png',
+            image: 'assets/small_icons/help',
             action: LinkedArror(
               url: mail,
             ),
           ),
           Setting(
             text: 'Conf',
-            image: 'assets/small_icons/conf.png',
+            image: 'assets/small_icons/conf',
             action: LinkedArror(
               url: conf,
             ),
           ),
           Setting(
             text: 'Rules',
-            image: 'assets/small_icons/rules.png',
+            image: 'assets/small_icons/rules',
             action: LinkedArror(
               url: rules,
             ),

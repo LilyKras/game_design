@@ -2,6 +2,7 @@ import 'package:diella/domain/helpers/url.dart';
 import 'package:diella/presentation/menu/screens/widgets/app_bar.dart';
 import 'package:diella/presentation/menu/screens/widgets/dialog.dart';
 import 'package:diella/presentation/menu/screens/widgets/navigation_icon_button.dart';
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,7 +22,8 @@ class ScreenSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Container(
-        color: const Color(0xFFB57A82),
+        color:
+            Theme.of(context).extension<ThemeColors>()!.bottomBackGroundColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 3),
           child: Row(
@@ -74,23 +76,20 @@ class ScreenSample extends StatelessWidget {
               leading: null,
               automaticallyImplyLeading: false,
               centerTitle: true,
-              title: const Text(
+              title: Text(
                 'Settings',
-                style: TextStyle(fontSize: 24),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
-              backgroundColor: const Color(0xFFFFDDC7),
             )
           : SpecialAppBar(
               isShop: isShop,
             ),
       body: Center(
         child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFFFDDC7), Color(0xFFFFDDC7), Color(0xFFD58A94)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+          decoration: BoxDecoration(
+            gradient: Theme.of(context)
+                .extension<ThemeGradients>()!
+                .backGroundGradient,
           ),
           child: Center(child: body),
         ),

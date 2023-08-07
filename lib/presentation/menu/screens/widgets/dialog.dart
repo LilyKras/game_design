@@ -30,17 +30,13 @@ class DialogWidget extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(28),
             border: Border.all(color: Colors.white),
-            gradient: const LinearGradient(
-              colors: [Color(0xFFB57A82), Color(0xFFF3909D)],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-            ),
+            color: Theme.of(context).dialogTheme.backgroundColor,
           ),
           child: Center(
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 20),
+              style: Theme.of(context).dialogTheme.contentTextStyle,
             ),
           ),
         ),

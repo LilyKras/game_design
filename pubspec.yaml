@@ -86,6 +86,13 @@ flutter:
     - assets/small_icons/conf.png
     - assets/small_icons/help.png
     - assets/small_icons/rules.png
+    - assets/small_icons/sound_dark.png
+    - assets/small_icons/theme_dark.png
+    - assets/small_icons/language_dark.png
+    - assets/small_icons/notifications_dark.png
+    - assets/small_icons/conf_dark.png
+    - assets/small_icons/help_dark.png
+    - assets/small_icons/rules_dark.png
     - assets/stats/money.png
     - assets/stats/key.png
     - assets/social_network/vk.png

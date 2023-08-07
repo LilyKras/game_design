@@ -1,3 +1,4 @@
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class SpecialButton extends StatelessWidget {
@@ -36,11 +37,8 @@ class SpecialButton extends StatelessWidget {
                   bottomRight:
                       Radius.circular(MediaQuery.of(context).size.height / 30),
                 ),
-          gradient: const LinearGradient(
-            colors: [Color(0xFFB57A82), Color(0xFFF3909D)],
-            end: Alignment.topCenter,
-            begin: Alignment.bottomCenter,
-          ),
+          gradient:
+              Theme.of(context).extension<ThemeGradients>()!.buttonGradient,
         ),
         child: Padding(
           padding: const EdgeInsets.all(2.0),

@@ -30,7 +30,10 @@ class Selector extends ConsumerWidget {
             ),
           ),
         ),
-        Text(select[ref.watch(controller) as int][1]),
+        Text(
+          select[ref.watch(controller) as int][1],
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
         SizedBox(
           height: MediaQuery.of(context).size.height / 17,
           child: FittedBox(

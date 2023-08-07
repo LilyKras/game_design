@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:diella/domain/models/story_item.dart';
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -124,7 +125,10 @@ List<Widget> imageSliders(BuildContext context) {
             width: MediaQuery.of(context).size.width * 0.75,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: const Color(0xFFCC7A85), width: 3),
+              border: Border.all(
+                color: Theme.of(context).extension<ThemeColors>()!.borderColor,
+                width: 3,
+              ),
             ),
             margin: const EdgeInsets.only(bottom: 5),
             child: ClipRRect(
@@ -134,12 +138,10 @@ List<Widget> imageSliders(BuildContext context) {
                 alignment: Alignment.bottomLeft,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color(0xFFB57A82), Color(0xFFF3909D)],
-                        end: Alignment.topCenter,
-                        begin: Alignment.bottomCenter,
-                      ),
+                    decoration: BoxDecoration(
+                      gradient: Theme.of(context)
+                          .extension<ThemeGradients>()!
+                          .storyPreviewGradient,
                     ),
                   ),
                   Image.network(
@@ -208,7 +210,10 @@ class StoryDialog extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(23),
-        border: Border.all(color: const Color(0xFFCC7A85), width: 3),
+        border: Border.all(
+          color: Theme.of(context).extension<ThemeColors>()!.borderColor,
+          width: 3,
+        ),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(21),

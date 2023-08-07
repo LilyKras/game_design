@@ -3,6 +3,7 @@ import 'package:diella/presentation/menu/controlers/settings/switch_controller.d
 import 'package:diella/presentation/menu/controlers/settings/slider_controller.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/selector.dart';
 import 'package:diella/presentation/menu/screens/settings_screen/widgets/widgets/setting.dart';
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class SettingsCard extends StatelessWidget {
@@ -14,22 +15,22 @@ class SettingsCard extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(21)),
       ),
-      color: const Color.fromARGB(255, 224, 177, 169),
+      color: Theme.of(context).extension<ThemeColors>()!.setingsBackgroundColor,
       child: Column(
         children: [
           Setting(
             text: 'Sound',
-            image: 'assets/small_icons/sound.png',
+            image: 'assets/small_icons/sound',
             action: CustomSwitcher(controller: volumeController),
           ),
           Setting(
             text: 'Notifications',
-            image: 'assets/small_icons/notifications.png',
+            image: 'assets/small_icons/notifications',
             action: CustomSwitcher(controller: notificationsController),
           ),
           Setting(
             text: 'Language',
-            image: 'assets/small_icons/language.png',
+            image: 'assets/small_icons/language',
             action: Selector(
               select: language,
               controller: languageController,
@@ -37,7 +38,7 @@ class SettingsCard extends StatelessWidget {
           ),
           Setting(
             text: 'Theme',
-            image: 'assets/small_icons/theme.png',
+            image: 'assets/small_icons/theme',
             action: Selector(
               select: theme,
               controller: themeController,

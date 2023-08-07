@@ -1,3 +1,4 @@
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,14 +21,9 @@ class CardType extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(21),
-                gradient: const LinearGradient(
-                  colors: [
-                    Color.fromRGBO(181, 122, 130, 0.4),
-                    Color.fromRGBO(243, 144, 157, 0.8)
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
+                gradient: Theme.of(context)
+                    .extension<ThemeGradients>()!
+                    .shopItemGradient,
               ),
               height: 150,
             ),
@@ -36,9 +32,15 @@ class CardType extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white, width: 1),
                 borderRadius: BorderRadius.circular(21),
-                color: const Color(0xFFF5B8B8),
+                color:
+                    Theme.of(context).extension<ThemeColors>()!.shopNameColor,
               ),
-              child: Center(child: Text(type)),
+              child: Center(
+                child: Text(
+                  type,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
             )
           ],
         ),

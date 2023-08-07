@@ -1,3 +1,4 @@
+import 'package:diella/presentation/menu/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 class AuthCard extends StatelessWidget {
@@ -11,7 +12,8 @@ class AuthCard extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(21)),
         ),
-        color: const Color.fromARGB(255, 224, 177, 169),
+        color:
+            Theme.of(context).extension<ThemeColors>()!.setingsBackgroundColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Column(
@@ -19,7 +21,10 @@ class AuthCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Log in with'),
+                  Text(
+                    'Log in with',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 17,
                     child: FittedBox(
@@ -35,7 +40,10 @@ class AuthCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Log in with'),
+                  Text(
+                    'Log in with',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 17,
                     child: FittedBox(
