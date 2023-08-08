@@ -17,7 +17,7 @@ class Setting extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     String isDarkTheme =
-        (ref.watch(themeController) as int == 0) ? '_dark' : '';
+        (ref.watch(themeController) as int == 1) ? '_dark' : '';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Row(
