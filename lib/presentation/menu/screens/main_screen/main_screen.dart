@@ -1,11 +1,9 @@
-import 'package:diella/presentation/games/game.dart';
 import 'package:diella/presentation/menu/controlers/coins_controller.dart';
 import 'package:diella/presentation/menu/screens/main_screen/widgets/slider.dart';
 import 'package:diella/presentation/menu/screens/main_screen/widgets/special_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../games/first/first_game.dart';
 import '../widgets/screen_sample.dart';
 
 class MainScreen extends ConsumerWidget {
@@ -28,9 +26,7 @@ class MainScreen extends ConsumerWidget {
                   SpecialButton(
                     isLeft: false,
                     text: 'Превратности судьбы',
-                    action: () {
-                      startGame(FirstGame());
-                    },
+                    action: () {},
                   ),
                   SpecialButton(
                     isLeft: true,
